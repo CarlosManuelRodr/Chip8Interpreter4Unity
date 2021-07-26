@@ -5,6 +5,11 @@ using System.Diagnostics;
 
 namespace Chip8Interpreter4Unity
 {
+    /// <summary>
+    /// CPU implementation of the Chip-8 interpreter.
+    /// References: http://devernay.free.fr/hacks/chip8/C8TECH10.HTM
+    ///             https://tobiasvl.github.io/blog/write-a-chip-8-emulator/
+    /// </summary>
     public class VirtualCPU
     {
         public byte[] RAM { get; private set; }
@@ -44,6 +49,7 @@ namespace Chip8Interpreter4Unity
 
         private void InitializeFont()
         {
+            // Default font is loaded at adresses 0x000 to 0x1FF.
             byte[] characters = new byte[]
             {
                 0xF0, 0x90, 0x90, 0x90, 0xF0, // 0
